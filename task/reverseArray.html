@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>reverseArray</title>
+</head>
+<body>
+
+<p>
+    У массивов есть метод reverse, меняющий порядок элементов в массиве на обратный. В качестве упражнения напишите две
+    функции, reverseArray и reverseArrayInPlace. Первая получает массив как аргумент и выдаёт новый массив – с обратным
+    порядком элементов. Вторая работает как оригинальный метод reverse – она меняет порядок элементов на обратный в том
+    массиве, который был ей передан в качестве аргумента. Не используйте стандартный метод reverse.<br><br>
+
+    Если иметь в виду побочные эффекты и чистые функции из предыдущей главы, какой из вариантов вам кажется более
+    полезным? Какой более эффективным?<br><br>
+
+    console.log(reverseArray(["A", "B", "C"]));<br>
+    // → ["C", "B", "A"];<br>
+    var arrayValue = [1, 2, 3, 4, 5];<br>
+    reverseArrayInPlace(arrayValue);<br>
+    console.log(arrayValue);<br>
+    // → [5, 4, 3, 2, 1]
+</p>
+
+<script>
+//    console.log(reverseArray(["A", "B", "C"]));
+
+    var arrayValue = [1, 2, 3, 4, 5];
+    reverseArrayInPlace(arrayValue);
+    console.log(arrayValue);
+
+    function reverseArray(arr){
+        var newArr = [];
+        for (var i = 0; i < arr.length; i++){
+            newArr.unshift(arr[i]);
+        }
+        return newArr;
+    }
+
+    function reverseArrayInPlace(arr) {
+        var iterations = arr.length;
+        var temp = null;
+        for (var i = 1; i < iterations; i++){
+            temp = arr.splice(i, 1);
+            arr.unshift(temp[0]);
+        }
+        return arr;
+    }
+
+</script>
+
+</body>
+</html>
