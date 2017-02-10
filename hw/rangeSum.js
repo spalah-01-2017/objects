@@ -27,7 +27,7 @@ function range(beg, end, step) {
             ran.push(i);
         }
     } else if (beg > end) {
-        for (var i = end; i>=beg; i=i+step) {
+        for (var i = beg; i>=end; i=i+step) {
             ran.push(i);
         }
     }
@@ -36,7 +36,6 @@ function range(beg, end, step) {
 }
 
 range(1, 10, 2);
-//почему не срабатывает второе условие? для
 range(5, 2, -1);
 
 function sum(arr) {
